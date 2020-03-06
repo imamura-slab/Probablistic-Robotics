@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
+from scipy.stats import norm
+import random
 
 
 ### データ読み込み
@@ -53,12 +55,60 @@ freqs["probs"] = freqs["lidar"]/len(data["lidar"])
 def drawing():
     return freqs.sample(n=1, weights="probs").index[0]
 
-#samples = [drawing() for i in range(1000)]
-samples = [drawing() for i in range(len(data))]
-simulated = pd.DataFrame(samples, columns=["lidar"])
-p = simulated["lidar"]
-p.hist(bins=max(p)-min(p), color="orange", align='left')
-plt.show()
+# #samples = [drawing() for i in range(1000)]
+# samples = [drawing() for i in range(len(data))]  #じかんかかる
+# simulated = pd.DataFrame(samples, columns=["lidar"])
+# p = simulated["lidar"]
+# p.hist(bins=max(p)-min(p), color="orange", align='left')
+# plt.show()
+
+
+### 正規分布作成
+def p(z, mu=209.7, dev=23.4):
+    return math.exp(-(z-mu)**2/(2*dev))/math.sqrt(2*math.pi*dev)
+# zs = range(190, 230)
+# ys = [p(z) for z in zs]
+# plt.plot(zs, ys)
+# plt.show()
+
+
+### 区間[x-0.5, x+0.5)の範囲で積分
+def prob(z, width=0.5):
+    return width*(p(z-width)+p(z+width))
+# zs = range(190, 230)
+# ys = [prob(z) for z in zs]
+# plt.bar(zs, ys, color="red", alpha=0.3)
+# f = freqs["probs"].sort_index()
+# plt.bar(f.index, f.values, color="blue", alpha=0.3)
+# plt.show()
+
+
+### scipyを使用してpdf(確率密度関数)
+# zs = range(190, 230)
+# ys = [norm.pdf(z, mean1, stddev1) for z in zs]
+# plt.plot(zs, ys)
+# plt.show()
+
+
+### cdf (累積分布関数)
+# zs = range(190, 230)
+# ys = [norm.cdf(z, mean1, stddev1) for z in zs]
+# plt.plot(zs, ys, color="red")
+# plt.show()
+
+
+### cdfから確率分布を描く
+# zs = range(190, 230)
+# ys = [norm.cdf(z+0.5, mean1, stddev1) - norm.cdf(z-0.5, mean1, stddev1) for z in zs]
+# plt.bar(zs, ys)
+# plt.show()
+
+
+### さいころを10000回振って疑似的に期待値を求める (さいころの出目の期待値は3.5)
+samples = [random.choice([1,2,3,4,5,6]) for i in range(10000)]
+print(sum(samples)/len(samples))
+
+
 
 
 
