@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('../scripts/')
+sys.path.append('../../scripts/')
 from kf import *
 
 

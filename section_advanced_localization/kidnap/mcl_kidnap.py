@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('../scripts/')
+sys.path.append('../../scripts/')
 from mcl import *
 
 
@@ -19,9 +19,13 @@ def trial(animation):
     initial_pose = np.array([np.random.uniform(-5.0,5.0),
                              np.random.uniform(-5.0,5.0),
                              np.random.uniform(-math.pi,math.pi)]).T
+    robot_pose = np.array([np.random.uniform(-5.0,5.0),
+                           np.random.uniform(-5.0,5.0),
+                           np.random.uniform(-math.pi,math.pi)]).T
+    
     pf = Mcl(m, initial_pose, 100)
     a = EstimationAgent(time_interval, 0.2, 10.0/180*math.pi, pf)
-    r = Robot(initial_pose, sensor=Camera(m), agent=a, color="red")
+    r = Robot(robot_pose, sensor=Camera(m), agent=a, color="red")
     world.append(r)
     
     world.draw()

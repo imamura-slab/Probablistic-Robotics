@@ -1,5 +1,6 @@
 # Probablistic-Robotics
-- 著者のオリジナルサンプルコード : [https://github.com/ryuichiueda/LNPR_BOOK_CODES](https://github.com/ryuichiueda/LNPR_BOOK_CODES)
+- 載ってたサンプルコードをなぞっていっただけ
+- この本の著者のオリジナルサンプルコード : [https://github.com/ryuichiueda/LNPR_BOOK_CODES](https://github.com/ryuichiueda/LNPR_BOOK_CODES)
 
 
 ## 第1章 はじめに
