@@ -23,7 +23,9 @@
 ## 第7章 自己位置推定の諸問題
 - [section_advanced_localization](https://github.com/imamura-slab/Probablistic-Robotics/tree/master/section_advanced_localization)
 
-## 第8章
+## 第8章 パーティクルフィルタによるSLAM
+- section_fastslam
+
 ## 第9章
 ## 第10章
 ## 第11章
