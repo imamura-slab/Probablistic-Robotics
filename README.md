@@ -27,7 +27,7 @@
 - [section_fastslam](https://github.com/imamura-slab/Probablistic-Robotics/tree/master/section_fastslam)
 
 ## 第9章 グラフ表現によるSLAM
-- section_graph_slam
+- [section_graph_slam](https://github.com/imamura-slab/Probablistic-Robotics/tree/master/section_graph_slam)
 
 ## 第10章
 ## 第11章
