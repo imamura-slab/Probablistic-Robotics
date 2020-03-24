@@ -29,6 +29,8 @@
 ## 第9章 グラフ表現によるSLAM
 - [section_graph_slam](https://github.com/imamura-slab/Probablistic-Robotics/tree/master/section_graph_slam)
 
-## 第10章
+## 第10章 マルコフ決定過程と動的計画法
+- section_mdp
+
 ## 第11章
 ## 第12章 
