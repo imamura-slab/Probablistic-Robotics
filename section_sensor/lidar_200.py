@@ -10,17 +10,19 @@ import random
 
 
 ### データ読み込み
-data = pd.read_csv("sensor_data_200.txt", delimiter=" ",
+data = pd.read_csv("sensor_data_200.txt", delimiter=" ",  #データの区切り文字は " " (SPACE)
                    header=None, names=("date","time","ir","lidar"))
 #print(data["lidar"][0:5])
 
 
 ### 平均値
-mean1 = sum(data["lidar"])/len(data["lidar"])
-mean2 = data["lidar"].mean() #Pandas
+mean1 = sum(data["lidar"])/len(data["lidar"]) #素直に
+mean2 = data["lidar"].mean()                  #Pandas
 
 
 ### ヒストグラム作成
+## bins: 横軸の各区間の数. 今回は区間の幅を1にしている.
+## align='left' : 中央の値を整数にしている. (今回用いたセンサ値は整数だから)
 # data["lidar"].hist(bins=max(data["lidar"])-min(data["lidar"]), color="orange", align='left')
 # plt.vlines(mean1, ymin=0, ymax=5000, color="red")
 # plt.show()

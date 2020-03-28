@@ -1,0 +1,5 @@
+- pdf(probability density function) : 確率密度関数
+- cdf(cumulative distribution function) : 累積分布関数
+- contour : 等高線
+- linear algebra : 線形 代数
+- eigenvalue, eigenvector : 固有値, 固有ベクトル
