@@ -7,13 +7,23 @@ from robot import *
 from scipy.stats import norm, chi2
 
         
-
+### パーティクル数を求める ###############################################################################
+# epsilon : 真の信念分布をパーティクルの分布で近似するときの誤差の許容値
+# delta   : (たとえパーティクル数が十分にあっても)近似したい分布に対してパーティクルの分布が偏って
+#           KL情報量が epsilon 以内に達しない状況になる確率
+# binnum  : ビン数
+#---------------------------------------------------------------------------------------------------------
+# RET     : パーティクル数(N)
+#           N > y / 2*epsilon を満たす最小のN
 def num(epsilon, delta, binnum):
-    return math.ceil(chi2.ppf(1.0-delta, binnum-1)/(2*epsilon)) 
+    return math.ceil(chi2.ppf(1.0-delta, binnum-1) / (2*epsilon))  #ceil関数 : 整数になるよう切り上げ
 
+
+### パーティクル数を求める(ウィルソン-フィルファーティ変換を用いて) #####################################
+# 入出力は上記のnum関数と同じ
 def num_wh(epsilon, delta, binnum):
     dof = binnum - 1
-    z = norm.ppf(1.0-delta)
+    z   = norm.ppf(1.0-delta)
     return math.ceil(dof/(2*epsilon)*(1.0-2.0/(9*dof) + math.sqrt(2.0/(9*dof))*z)**3)
 
 
