@@ -1,5 +1,5 @@
 # Probablistic-Robotics
-- 載ってたサンプルコードをなぞっていっただけ
+- 勉強のために, 載ってたサンプルコードをなぞっていっただけ. (途中でストップしてます...)
 - この本の著者のオリジナルサンプルコード : [https://github.com/ryuichiueda/LNPR_BOOK_CODES](https://github.com/ryuichiueda/LNPR_BOOK_CODES)
 
 
